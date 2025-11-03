@@ -1,0 +1,20 @@
+random_seed: 42
+pipeline:
+  color_space: HLS
+  s_thresh: [120, 255]
+  l_thresh: [200, 255]
+  sobel:
+    enable: true
+    orient: x
+    ksize: 3
+    mag_thresh: [30, 255]
+  roi:
+    mode: auto
+    manual_points: [[0.15,0.95],[0.85,0.95],[0.6,0.6],[0.4,0.6]]
+  perspective:
+    dst_points: [[0.2,1.0],[0.8,1.0],[0.8,0.0],[0.2,0.0]]
+  sliding_window:
+    nwindows: 9
+    margin: 100
+    minpix: 50
+  smoothing_frames: 5
